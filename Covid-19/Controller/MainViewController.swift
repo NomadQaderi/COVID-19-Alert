@@ -199,7 +199,7 @@ class MainViewController: UITableViewController, UISearchBarDelegate {
             } else {
                 
                 switch sorting {
-                case .mostCase:
+                case .name:
                     details.sort {$0.details.cases > $1.details.cases}
                 case .leastCase:
                     details.sort {$0.details.cases < $1.details.cases}
@@ -276,6 +276,8 @@ class MainViewController: UITableViewController, UISearchBarDelegate {
                     vc.caseNumbers = detail.cases
                     vc.deathNumbers = detail.deaths
                     vc.recoveredNumbers = detail.recovered.replacingOccurrences(of: ",", with: "")
+//                  guard vc.numberofAlives == caseNumber! - deathNumber! else {return }
+//                  vc.numberofAlives = caseNumber! - deathNumber!
                     vc.numberofAlives = caseNumber! - deathNumber!
                     
                     vc.lastupdate = "Last Update: \(date?.replacingMultipleOccurrences(using: (of: "T", with: " "), (of: "Z", with: " UTC +0")) ?? "Last Update: Not available.")"
